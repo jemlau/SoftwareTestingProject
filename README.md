@@ -1,4 +1,4 @@
-# Software-testing-project
+# Software Testing Project
 School project for our course "Software Testing"
 
 Collaborators:
