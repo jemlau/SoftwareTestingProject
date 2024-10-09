@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-09T12:48:20.152313" rpa="false" schemaversion="5">
+<suite id="s1" name="4.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\4.testi.robot">
+<test id="s1-t1" name="Testaa Lisää Koriin Linkin Ikoni Ja Ota Kuvankaappaus" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-09T12:48:20.510305" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-09T12:48:20.508302" elapsed="4.141914"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-09T12:48:24.651216" elapsed="0.270240"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-09T12:48:24.923457" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Show/199044/1000040194/sony-ps5-dualsense-midnight-black-langaton-peliohjain'</msg>
+<arg>https://www.jimms.fi/fi/Product/Show/199044/1000040194/sony-ps5-dualsense-midnight-black-langaton-peliohjain</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-09T12:48:24.922457" elapsed="1.061091"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ICON_XPATH}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-09T12:48:25.986543" elapsed="0.129598"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2024-10-09T12:48:26.272727" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="lis%C3%A4%C3%A4_koriin_ikoni.png"&gt;&lt;img src="lis%C3%A4%C3%A4_koriin_ikoni.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${ICON_XPATH}</arg>
+<arg>${SCREENSHOT_PATH}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2024-10-09T12:48:26.117136" elapsed="0.156596"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2024-10-09T12:48:26.276727" level="INFO" html="true">File '&lt;a href="file://C:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\lisää_koriin_ikoni.png"&gt;C:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\lisää_koriin_ikoni.png&lt;/a&gt;' exists.</msg>
+<arg>${SCREENSHOT_PATH}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2024-10-09T12:48:26.275743" elapsed="0.001982"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-09T12:48:26.278724" elapsed="2.219994"/>
+</kw>
+<doc>Tarkistaa löytyykö "Lisää koriin" -linkkiin liittyvä ikoni ja ottaa siitä kuvankaappauksen</doc>
+<status status="PASS" start="2024-10-09T12:48:20.506307" elapsed="7.994407"/>
+</test>
+<status status="PASS" start="2024-10-09T12:48:20.161313" elapsed="8.349424"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="4.Testi">4.Testi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

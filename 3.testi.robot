@@ -14,3 +14,4 @@ Testaa Lisää Koriin Linkin Olemassaolo
     # Tarkista, että "Lisää koriin" -linkki on näkyvissä
     Element Should Be Visible    css=a[title="Lisää koriin"]
     Close Browser
+
