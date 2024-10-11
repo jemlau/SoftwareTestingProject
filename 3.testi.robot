@@ -5,7 +5,7 @@ Library    SeleniumLibrary
 ${URL}     https://www.jimms.fi/
 
 *** Test Cases ***
-Testaa Lisää Koriin Linkin Olemassaolo
+Testaa Lisää Koriin Linkki
     [Documentation]    Tarkistaa löytyykö tuotesivulta "Lisää koriin" -linkki
     Open Browser    ${URL}    Chrome
     Maximize Browser Window
