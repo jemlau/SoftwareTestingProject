@@ -1,62 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-09T12:48:20.152313" rpa="false" schemaversion="5">
-<suite id="s1" name="4.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\4.testi.robot">
-<test id="s1-t1" name="Testaa Lisää Koriin Linkin Ikoni Ja Ota Kuvankaappaus" line="12">
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-14T19:14:02.662438" rpa="false" schemaversion="5">
+<suite id="s1" name="6.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot">
+<test id="s1-t1" name="Testaa Toimiiko Some Linkit" line="16">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-09T12:48:20.510305" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<msg time="2024-10-14T19:14:02.925298" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-09T12:48:20.508302" elapsed="4.141914"/>
+<status status="PASS" start="2024-10-14T19:14:02.924344" elapsed="3.274762"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-09T12:48:24.651216" elapsed="0.270240"/>
+<status status="PASS" start="2024-10-14T19:14:06.200117" elapsed="0.285646"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-10-09T12:48:24.923457" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Show/199044/1000040194/sony-ps5-dualsense-midnight-black-langaton-peliohjain'</msg>
-<arg>https://www.jimms.fi/fi/Product/Show/199044/1000040194/sony-ps5-dualsense-midnight-black-langaton-peliohjain</arg>
+<msg time="2024-10-14T19:14:06.486760" level="INFO">Opening url 'https://www.jimms.fi/'</msg>
+<arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-10-09T12:48:24.922457" elapsed="1.061091"/>
+<status status="PASS" start="2024-10-14T19:14:06.485763" elapsed="0.681227"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-14T19:14:07.168997" level="INFO">${link_xpath} = /html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]</msg>
+<var>${link_xpath}</var>
+<arg>${SOCIAL_MEDIA_LINKS}[${index - 1}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-14T19:14:07.168000" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-14T19:14:07.169997" level="INFO">${screenshot_path} = some_1.png</msg>
+<var>${screenshot_path}</var>
+<arg>some_${index}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-14T19:14:07.168997" elapsed="0.001000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${ICON_XPATH}</arg>
+<msg time="2024-10-14T19:14:17.698455" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-14T19:14:17.698962" level="FAIL">Element '/html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]' not visible after 10 seconds.</msg>
+<arg>${link_xpath}</arg>
 <arg>timeout=10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-09T12:48:25.986543" elapsed="0.129598"/>
+<status status="FAIL" start="2024-10-14T19:14:07.171001" elapsed="10.530375">Element '/html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]' not visible after 10 seconds.</status>
 </kw>
 <kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<msg time="2024-10-09T12:48:26.272727" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="lis%C3%A4%C3%A4_koriin_ikoni.png"&gt;&lt;img src="lis%C3%A4%C3%A4_koriin_ikoni.png" width="400px"&gt;&lt;/a&gt;</msg>
-<arg>${ICON_XPATH}</arg>
-<arg>${SCREENSHOT_PATH}</arg>
+<arg>${link_xpath}</arg>
+<arg>${screenshot_path}</arg>
 <doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="PASS" start="2024-10-09T12:48:26.117136" elapsed="0.156596"/>
+<status status="NOT RUN" start="2024-10-14T19:14:17.701376" elapsed="0.001001"/>
 </kw>
 <kw name="File Should Exist" owner="OperatingSystem">
-<msg time="2024-10-09T12:48:26.276727" level="INFO" html="true">File '&lt;a href="file://C:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\lisää_koriin_ikoni.png"&gt;C:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\lisää_koriin_ikoni.png&lt;/a&gt;' exists.</msg>
-<arg>${SCREENSHOT_PATH}</arg>
+<arg>${screenshot_path}</arg>
 <doc>Fails unless the given ``path`` points to an existing file.</doc>
-<status status="PASS" start="2024-10-09T12:48:26.275743" elapsed="0.001982"/>
+<status status="NOT RUN" start="2024-10-14T19:14:17.702377" elapsed="0.000000"/>
 </kw>
+<var name="${index}">1</var>
+<status status="FAIL" start="2024-10-14T19:14:07.168000" elapsed="10.534377">Element '/html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]' not visible after 10 seconds.</status>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>7</value>
+<status status="FAIL" start="2024-10-14T19:14:07.168000" elapsed="10.534377">Element '/html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]' not visible after 10 seconds.</status>
+</for>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-09T12:48:26.278724" elapsed="2.219994"/>
+<status status="NOT RUN" start="2024-10-14T19:14:17.703377" elapsed="0.000000"/>
 </kw>
-<doc>Tarkistaa löytyykö "Lisää koriin" -linkkiin liittyvä ikoni ja ottaa siitä kuvankaappauksen</doc>
-<status status="PASS" start="2024-10-09T12:48:20.506307" elapsed="7.994407"/>
+<doc>Tarkistaa toimivatko footerissa olevat some ikonit linkkinä</doc>
+<status status="FAIL" start="2024-10-14T19:14:02.922744" elapsed="14.836356">Element '/html/body/footer/div[1]/div[1]/div[2]/div/div/a[1]' not visible after 10 seconds.</status>
 </test>
-<status status="PASS" start="2024-10-09T12:48:20.161313" elapsed="8.349424"/>
+<status status="FAIL" start="2024-10-14T19:14:02.673808" elapsed="15.100299"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="4.Testi">4.Testi</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="6.Testi">6.Testi</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2024-10-14T19:14:02.673808" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 8: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T19:14:02.675806" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 9: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T19:14:02.676805" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 10: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T19:14:02.677891" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 11: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T19:14:02.678889" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 12: Setting variable '' failed: Invalid variable name ''.</msg>
 </errors>
 </robot>

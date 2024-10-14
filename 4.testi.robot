@@ -9,7 +9,7 @@ ${SCREENSHOT_PATH}    lisää_koriin_ikoni.png
 
 *** Test Cases ***
 
-Testaa Lisää Koriin Linkin Ikoni Ja Ota Kuvankaappaus
+Testaa Lisää Koriin Linkin Ikoni
     [Documentation]    Tarkistaa löytyykö "Lisää koriin" -linkkiin liittyvä ikoni ja ottaa siitä kuvankaappauksen
     Open Browser    ${URL}    Chrome
     Maximize Browser Window
