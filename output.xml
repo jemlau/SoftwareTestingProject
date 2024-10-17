@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.0 on win32)" generated="2024-10-09T11:02:08.318576" rpa="false" schemaversion="5">
+<suite id="s1" name="1.Testi" source="c:\SoftwareTestingProject\1.testi.robot">
+<test id="s1-t1" name="Testataan, onko kaikilla tuotteilla landing page" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-09T11:02:10.540136" level="INFO">Opening browser 'Chrome' to base url 'http://jimms.fi'.</msg>
+<arg>http://jimms.fi</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-09T11:02:10.525579" elapsed="8.552521"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-09T11:02:19.291976" elapsed="0.712565"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-09T11:02:22.100857" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-09T11:02:20.014496" elapsed="2.148175"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-10-09T11:02:22.657389" level="INFO">${navbar_items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="3c2016bfb8541f1fa4341b78fca1103c", element="f.D483CCC4CE46C952F81DD7E7530D0779.d.90E82FFE0C5C5A12CA97868972D36076.e.93")&gt;]</msg>
+<var>${navbar_items}</var>
+<arg>xpath:/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-10-09T11:02:22.176803" elapsed="0.482589"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-09T11:02:23.012188" level="INFO">${link_text} = Tietokoneet
+Komponentit
+Oheislaitteet
+Pelaaminen
+Sim Racing
+Verkkotuotteet
+Tarvikkeet
+Erikoistuotteet
+Ohjelmistot
+Palvelut
+Kampanjat</msg>
+<var>${link_text}</var>
+<arg>${item}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-09T11:02:22.724313" elapsed="0.289964"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-10-09T11:02:23.190769" level="INFO">${link_href} = None</msg>
+<var>${link_href}</var>
+<arg>${item}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-10-09T11:02:23.020298" elapsed="0.179991"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-09T11:02:23.217407" level="INFO">Checking link: Tietokoneet
+Komponentit
+Oheislaitteet
+Pelaaminen
+Sim Racing
+Verkkotuotteet
+Tarvikkeet
+Erikoistuotteet
+Ohjelmistot
+Palvelut
+Kampanjat with URL: None</msg>
+<arg>Checking link: ${link_text} with URL: ${link_href}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-09T11:02:23.200289" elapsed="0.017118"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Check If Landing Page Loads">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-09T11:02:23.317478" level="INFO">Opening url 'None'</msg>
+<msg time="2024-10-09T11:02:23.917196" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-09T11:02:23.926029" level="FAIL">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="FAIL" start="2024-10-09T11:02:23.312381" elapsed="0.766650">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//title</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-10-09T11:02:24.082970" elapsed="0.001627"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Landing page for ${url} loaded successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-10-09T11:02:24.086255" elapsed="0.001129"/>
+</kw>
+<arg>${link_href}</arg>
+<status status="FAIL" start="2024-10-09T11:02:23.267682" elapsed="0.825898">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</kw>
+<arg>Check If Landing Page Loads</arg>
+<arg>${link_href}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2024-10-09T11:02:23.234386" elapsed="0.862032">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</kw>
+<var name="${item}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3c2016bfb8541f1fa4341b78fca1103c", element="f.D483CCC4CE46C952F81DD7E7530D0779.d.90E82FFE0C5C5A12CA97868972D36076.e.93")&gt;</var>
+<status status="FAIL" start="2024-10-09T11:02:22.713942" elapsed="1.384585">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</iter>
+<var>${item}</var>
+<value>@{navbar_items}</value>
+<status status="FAIL" start="2024-10-09T11:02:22.674392" elapsed="1.426257">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</for>
+<status status="FAIL" start="2024-10-09T11:02:10.520356" elapsed="13.592309">InvalidArgumentException: Message: invalid argument: 'url' must be a string
+  (Session info: chrome=129.0.6668.90)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6611EB675+29573]
+	(No symbol) [0x00007FF6611604A0]
+	(No symbol) [0x00007FF66101B6EA]
+	(No symbol) [0x00007FF6610B95A4]
+	(No symbol) [0x00007FF6610972FA]
+	(No symbol) [0x00007FF6610B86BC]
+	(No symbol) [0x00007FF6610970A3]
+	(No symbol) [0x00007FF6610612DF]
+	(No symbol) [0x00007FF661062441]
+	GetHandleVerifier [0x00007FF66151C5BD+3375821]
+	GetHandleVerifier [0x00007FF6615679B7+3684039]
+	GetHandleVerifier [0x00007FF66155CDDB+3640043]
+	GetHandleVerifier [0x00007FF6612AB7F6+816390]
+	(No symbol) [0x00007FF66116B7AF]
+	(No symbol) [0x00007FF6611675D4]
+	(No symbol) [0x00007FF661167770]
+	(No symbol) [0x00007FF6611565CF]
+	BaseThreadInitThunk [0x00007FFB1532257D+29]
+	RtlUserThreadStart [0x00007FFB1692AF28+40]
+</status>
+</test>
+<status status="FAIL" start="2024-10-09T11:02:08.399622" elapsed="15.758416"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="1.Testi">1.Testi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
