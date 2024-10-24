@@ -1,98 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.0 on win32)" generated="2024-10-24T12:25:59.067715" rpa="false" schemaversion="5">
-<suite id="s1" name="7.Testi" source="c:\Users\jemin\OneDrive - Hämeen ammattikorkeakoulu\GitHubit\SoftwareTestingProject\7.testi.robot">
-<test id="s1-t1" name="Open browser and go to product page" line="16">
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-14T20:22:47.326230" rpa="false" schemaversion="5">
+<suite id="s1" name="6.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot">
+<test id="s1-t1" name="Testaa Toimiiko Some Linkit" line="15">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:25:59.249693" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<msg time="2024-10-14T20:22:47.566866" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-24T12:25:59.249693" elapsed="1.887976"/>
+<status status="PASS" start="2024-10-14T20:22:47.565867" elapsed="2.982444"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-24T12:26:01.139661" elapsed="0.137260"/>
+<status status="PASS" start="2024-10-14T20:22:50.548311" elapsed="0.271117"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:01.277921" level="INFO">Opening url 'https://www.jimms.fi/fi/Product/Show/199044/1000040194/sony-ps5-dualsense-midnight-black-langaton-peliohjain'</msg>
-<arg>${productpage}</arg>
+<msg time="2024-10-14T20:22:50.820426" level="INFO">Opening url 'https://www.jimms.fi/'</msg>
+<arg>${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-10-24T12:26:01.277921" elapsed="0.459146"/>
+<status status="PASS" start="2024-10-14T20:22:50.820426" elapsed="0.630239"/>
 </kw>
-<status status="PASS" start="2024-10-24T12:25:59.248691" elapsed="2.488376"/>
-</test>
-<test id="s1-t2" name="Add product to cart and go to cart" line="23">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:01.739069" level="INFO">Clicking element 'xpath=//*[@id="product-cta-box"]/div/div[3]/div[2]/addto-cart-wrapper/div/a'.</msg>
-<arg>${addtocart}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-24T12:26:01.739069" elapsed="0.050308"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-14T20:22:51.452559" level="INFO">${link_xpath} = //a[contains(@title,'facebook')]</msg>
+<var>${link_xpath}</var>
+<arg>${SOCIAL_MEDIA_LINKS}[${index - 1}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-14T20:22:51.452046" elapsed="0.000513"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:01.791833" level="INFO">Clicking element 'xpath=//*[@id="headercartcontainer"]/a'.</msg>
-<arg>${cartbutton}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-24T12:26:01.790377" elapsed="0.343702"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-14T20:22:51.453572" level="INFO">${screenshot_path} = some_1.png</msg>
+<var>${screenshot_path}</var>
+<arg>some_${index}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-14T20:22:51.453572" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-10-24T12:26:01.738069" elapsed="0.397231"/>
-</test>
-<test id="s1-t3" name="Empty shopping cart and check that it's empty" line="28">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${emptycart}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-24T12:26:02.136308" elapsed="0.020346"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:02.157652" level="INFO">Clicking element 'xpath=//*[@id="jim-main"]/div/div/div/div[1]/div/button'.</msg>
-<arg>${emptycart}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-24T12:26:02.156654" elapsed="0.040982"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-24T12:26:04.199617" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-24T12:26:02.197636" elapsed="2.001981"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${link_xpath}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-10-14T20:22:51.454568" elapsed="0.322156"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${emptycart}</arg>
-<arg>timeout=10s</arg>
+<arg>${link_xpath}</arg>
+<arg>timeout=30</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-24T12:26:04.201710" elapsed="0.019981"/>
+<status status="PASS" start="2024-10-14T20:22:51.777723" elapsed="0.078936"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:04.223197" level="INFO">Clicking button 'xpath=//*[@id="resetcartmodal"]/div/div/div[3]/form/input[3]'.</msg>
-<arg>${emptycartButton}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-24T12:26:04.221691" elapsed="0.085904"/>
+<kw name="Run Keyword If" owner="BuiltIn">
+<msg time="2024-10-14T20:22:51.858688" level="FAIL">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<arg>Element Should Be Visible</arg>
+<arg>${link_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2024-10-14T20:22:51.857649" elapsed="0.003206">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-24T12:26:05.309041" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-24T12:26:04.307595" elapsed="1.001446"/>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<arg>${link_xpath}</arg>
+<arg>${screenshot_path}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="NOT RUN" start="2024-10-14T20:22:51.864398" elapsed="0.001020"/>
 </kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2024-10-24T12:26:05.338712" level="INFO">Current page contains text 'Ostoskorisi on tyhjä'.</msg>
-<arg>Ostoskorisi on tyhjä</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2024-10-24T12:26:05.311058" elapsed="0.027654"/>
+<kw name="File Should Exist" owner="OperatingSystem">
+<arg>${screenshot_path}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="NOT RUN" start="2024-10-14T20:22:51.867420" elapsed="0.000999"/>
 </kw>
-<status status="PASS" start="2024-10-24T12:26:02.136308" elapsed="3.203422"/>
+<var name="${index}">1</var>
+<status status="FAIL" start="2024-10-14T20:22:51.451531" elapsed="0.417889">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>7</value>
+<status status="FAIL" start="2024-10-14T20:22:51.451531" elapsed="0.418890">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-10-14T20:22:51.874958" elapsed="0.000000"/>
+</kw>
+<doc>Tarkistaa toimivatko footerissa olevat some ikonit linkkinä</doc>
+<status status="FAIL" start="2024-10-14T20:22:47.564867" elapsed="4.314092">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
 </test>
-<status status="PASS" start="2024-10-24T12:25:59.073749" elapsed="6.268981"/>
+<status status="FAIL" start="2024-10-14T20:22:47.330197" elapsed="4.552271"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="7.Testi">7.Testi</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="6.Testi">6.Testi</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2024-10-14T20:22:47.330197" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 8: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T20:22:47.332200" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 9: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T20:22:47.333224" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 10: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T20:22:47.334223" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 11: Setting variable '' failed: Invalid variable name ''.</msg>
+<msg time="2024-10-14T20:22:47.335221" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 12: Setting variable '' failed: Invalid variable name ''.</msg>
 </errors>
 </robot>
