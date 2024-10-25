@@ -49,6 +49,8 @@ Press the + button and check if price doubles
 Take screenshot of new price
     Capture Element Screenshot    xpath=//*[@id="jim-main"]/div/div    newprice.jpg
 
+    Close Browser
+
 
 
     
