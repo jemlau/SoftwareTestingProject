@@ -26,7 +26,7 @@ Add product to cart and go to cart
 
 *** Test Cases ***
 Empty shopping cart and check that it's empty
-    Wait Until Element Is Visible    ${emptycart}    timeout=10s
+    Wait Until Element Is Visible    ${emptycart}    timeout=4s
     Click Element    ${emptycart}
 
     Sleep    2s
