@@ -34,7 +34,7 @@ Click on Apple, add first result to cart and open cart
     Sleep    3s
 
 *** Test Cases ***
-Press the + button and check if price changes
+Press the + button and check if price doubles
     Click Element    ${plusbutton}
     
     Sleep    2s
