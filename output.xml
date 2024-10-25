@@ -1,101 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-14T20:22:47.326230" rpa="false" schemaversion="5">
-<suite id="s1" name="6.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot">
-<test id="s1-t1" name="Testaa Toimiiko Some Linkit" line="15">
+<robot generator="Robot 7.1 (Python 3.12.5 on win32)" generated="2024-10-24T10:54:30.876053" rpa="false" schemaversion="5">
+<suite id="s1" name="2.Testi" source="c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\2.testi.robot">
+<test id="s1-t1" name="Open Browser and maximize Window" line="13">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-14T20:22:47.566866" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
-<arg>${URL}</arg>
+<msg time="2024-10-24T10:54:31.825951" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<arg>${url}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-14T20:22:47.565867" elapsed="2.982444"/>
+<status status="PASS" start="2024-10-24T10:54:31.825951" elapsed="4.746293"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-14T20:22:50.548311" elapsed="0.271117"/>
+<status status="PASS" start="2024-10-24T10:54:36.572244" elapsed="0.331343"/>
 </kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-10-14T20:22:50.820426" level="INFO">Opening url 'https://www.jimms.fi/'</msg>
-<arg>${URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-10-14T20:22:50.820426" elapsed="0.630239"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-10-14T20:22:51.452559" level="INFO">${link_xpath} = //a[contains(@title,'facebook')]</msg>
-<var>${link_xpath}</var>
-<arg>${SOCIAL_MEDIA_LINKS}[${index - 1}]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-10-14T20:22:51.452046" elapsed="0.000513"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-10-14T20:22:51.453572" level="INFO">${screenshot_path} = some_1.png</msg>
-<var>${screenshot_path}</var>
-<arg>some_${index}.png</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-10-14T20:22:51.453572" elapsed="0.000000"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${link_xpath}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2024-10-14T20:22:51.454568" elapsed="0.322156"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${link_xpath}</arg>
-<arg>timeout=30</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-14T20:22:51.777723" elapsed="0.078936"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<msg time="2024-10-14T20:22:51.858688" level="FAIL">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
-<arg>Element Should Be Visible</arg>
-<arg>${link_xpath}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="FAIL" start="2024-10-14T20:22:51.857649" elapsed="0.003206">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
-</kw>
-<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
-<arg>${link_xpath}</arg>
-<arg>${screenshot_path}</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<status status="NOT RUN" start="2024-10-14T20:22:51.864398" elapsed="0.001020"/>
-</kw>
-<kw name="File Should Exist" owner="OperatingSystem">
-<arg>${screenshot_path}</arg>
-<doc>Fails unless the given ``path`` points to an existing file.</doc>
-<status status="NOT RUN" start="2024-10-14T20:22:51.867420" elapsed="0.000999"/>
-</kw>
-<var name="${index}">1</var>
-<status status="FAIL" start="2024-10-14T20:22:51.451531" elapsed="0.417889">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
-</iter>
-<var>${index}</var>
-<value>1</value>
-<value>7</value>
-<status status="FAIL" start="2024-10-14T20:22:51.451531" elapsed="0.418890">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
-</for>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2024-10-14T20:22:51.874958" elapsed="0.000000"/>
-</kw>
-<doc>Tarkistaa toimivatko footerissa olevat some ikonit linkkinä</doc>
-<status status="FAIL" start="2024-10-14T20:22:47.564867" elapsed="4.314092">Evaluating expression 'Element Should Be Visible' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+<status status="PASS" start="2024-10-24T10:54:31.825951" elapsed="5.077636"/>
 </test>
-<status status="FAIL" start="2024-10-14T20:22:47.330197" elapsed="4.552271"/>
+<status status="PASS" start="2024-10-24T10:54:30.888294" elapsed="6.020491"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="6.Testi">6.Testi</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="2.Testi">2.Testi</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-10-14T20:22:47.330197" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 8: Setting variable '' failed: Invalid variable name ''.</msg>
-<msg time="2024-10-14T20:22:47.332200" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 9: Setting variable '' failed: Invalid variable name ''.</msg>
-<msg time="2024-10-14T20:22:47.333224" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 10: Setting variable '' failed: Invalid variable name ''.</msg>
-<msg time="2024-10-14T20:22:47.334223" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 11: Setting variable '' failed: Invalid variable name ''.</msg>
-<msg time="2024-10-14T20:22:47.335221" level="ERROR">Error in file 'c:\Users\leski\OneDrive\Tiedostot\GitHub\SoftwareTestingProject\6.testi.robot' on line 12: Setting variable '' failed: Invalid variable name ''.</msg>
 </errors>
 </robot>
