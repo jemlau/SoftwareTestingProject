@@ -31,7 +31,7 @@ Empty shopping cart and check that it's empty
 
     Sleep    2s
 
-    Wait Until Element Is Visible    ${emptycart}    timeout=10s
+    Wait Until Element Is Visible    ${emptycartButton}    timeout=5s
     Click Button    ${emptycartButton}
 
     Sleep    1s
