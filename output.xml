@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.0 on win32)" generated="2024-10-25T15:46:02.712959" rpa="false" schemaversion="5">
+<suite id="s1" name="8.Testi" source="c:\Users\jemin\OneDrive - Hämeen ammattikorkeakoulu\GitHubit\SoftwareTestingProject\8.testi.robot">
+<test id="s1-t1" name="Open browser and click on &quot;Tietokoneet/Computers&quot;" line="16">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:02.947626" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-25T15:46:02.947059" elapsed="7.736709"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-25T15:46:10.684768" elapsed="0.137958"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:10.823724" level="INFO">Executing JavaScript:
+window.location.href="/fi/Product/Tietokoneet"
+Without any arguments.</msg>
+<arg>window.location.href="/fi/Product/Tietokoneet"</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-10-25T15:46:10.823724" elapsed="1.643587"/>
+</kw>
+<status status="PASS" start="2024-10-25T15:46:02.945972" elapsed="9.522428"/>
+</test>
+<test id="s1-t2" name="Click on Apple computers and set the max price to 900" line="23">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${gamingcomputers}</arg>
+<arg>timeout=4s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-25T15:46:12.471317" elapsed="0.024382"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:12.496716" level="INFO">Clicking element 'xpath=//*[@id="cListGroup"]/div/ul/li[2]/div/div/a/span'.</msg>
+<arg>${gamingcomputers}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T15:46:12.496716" elapsed="1.175743"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:13.674459" level="INFO">Clicking element 'xpath=//*[@id="cFilterPrice"]/div/div[1]/div/div[3]/div/input'.</msg>
+<arg>${maxprice}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T15:46:13.673459" elapsed="0.077836"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:13.752317" level="INFO">Typing text '900' into text field 'xpath=//*[@id="cFilterPrice"]/div/div[1]/div/div[3]/div/input'.</msg>
+<arg>${maxprice}</arg>
+<arg>900</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-25T15:46:13.751295" elapsed="0.095434"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:13.847764" level="INFO">Sending key(s) ('ENTER',) to xpath=//*[@id="cFilterPrice"]/div/div[1]/div/div[3]/div/input element.</msg>
+<msg time="2024-10-25T15:46:14.129355" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2024-10-25T15:46:14.129355" level="INFO">Releasing special key ENTER.</msg>
+<arg>${maxprice}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-10-25T15:46:13.847247" elapsed="0.288107"/>
+</kw>
+<status status="PASS" start="2024-10-25T15:46:12.470318" elapsed="1.665036"/>
+</test>
+<test id="s1-t3" name="Check that the robot only lists products that are 900e or less" line="33">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-10-25T15:46:14.152357" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>xpath=//*[@id="productlist"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-10-25T15:46:14.137358" elapsed="0.014999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-10-25T15:46:14.153357" level="INFO">Count=1</msg>
+<arg>Count=${count}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-10-25T15:46:14.153357" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-10-25T15:46:14.136355" elapsed="0.018002"/>
+</test>
+<status status="PASS" start="2024-10-25T15:46:02.716995" elapsed="11.438365"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="8.Testi">8.Testi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
