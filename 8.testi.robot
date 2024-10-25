@@ -21,7 +21,7 @@ Open browser and click on "Tietokoneet/Computers"
     Execute JavaScript    window.location.href="/fi/Product/Tietokoneet"
 
 *** Test Cases ***
-Click on Apple, add first result to cart and open cart
+Click on Apple, add first result to cart and open cart and take ss
     Click Element    ${apple}
 
     Wait Until Element Is Visible    ${addtocart}    timeout=3s
@@ -33,6 +33,8 @@ Click on Apple, add first result to cart and open cart
 
     Sleep    3s
 
+    Capture Element Screenshot    xpath=//*[@id="jim-main"]/div/div    oldprice.jpg
+
 *** Test Cases ***
 Press the + button and check if price doubles
     Click Element    ${plusbutton}
@@ -43,6 +45,9 @@ Press the + button and check if price doubles
     ${price_element}=    Get Text    xpath=//*[@id="jim-main"]/div/div/div/div[2]/div/div[1]/ul/li[5]/span
     Should Be Equal    ${price_element}    ${totalprice}
 
+*** Test Cases ***
+Take screenshot of new price
+    Capture Element Screenshot    xpath=//*[@id="jim-main"]/div/div    newprice.jpg
 
 
 
