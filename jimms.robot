@@ -78,9 +78,11 @@ Take screenshot of the icon
     File Should Exist    ${SCREENSHOT_PATH}
 
 *** Test Cases ***
-Testaa lisätä tuote ostoskoriin
+Test to add product to shopping cart
     [Documentation]    Hanna
     
     Click Element    xpath://a[@title='Lisää koriin']
-
+    Sleep    2s
+    
+    Close Browser
 
