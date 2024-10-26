@@ -20,6 +20,8 @@ Open Browser and maximize Window
 
 *** Test Cases ***
 Testataan, onko kaikilla tuotteilla landing page
+    [Documentation]    Hanna
+    
     Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a    5s
 
     ${elements}=    Get WebElements    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a
@@ -60,6 +62,7 @@ Go to the product page and check that it contains "Sony PS5 DualSense Midnight B
 *** Test Cases ***
 Test if the "Lisää koriin" link and icon is visible
     [Documentation]    Ella
+
     Element Should Be Visible    css=a[title="Lisää koriin"]
 
     Wait Until Element Is Visible    ${ICON_XPATH}    timeout=10
@@ -71,6 +74,7 @@ Take screenshot of the icon
 
 *** Test Cases ***
 Testaa lisätä tuote ostoskoriin
+    [Documentation]    Hanna
     
     Click Element    xpath://a[@title='Lisää koriin']
 
