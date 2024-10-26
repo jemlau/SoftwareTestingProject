@@ -20,24 +20,28 @@ Open Browser and maximize Window
 
 *** Test Cases ***
 Testataan, onko kaikilla tuotteilla landing page
-    Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a    5s
+    Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li/a    5s
 
-    ${elements}=    Get WebElements    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a
+    ${elements}=    Get WebElements    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li/a
 
     Remove From List    ${elements}    -1
 
     FOR    ${element}    IN    @{elements}
         ${link_text}=    Get Text    ${element}
         Log    Clicking link: ${link_text}
-        Run Keyword And Ignore Error    Click Element    ${element}
+
+        # Klikkaa elementtiä ja jatka, vaikka epäonnistuu
+        Run Keyword And Continue On Failure    Click Element    ${element}
+        
+        # Odotetaan, että uusi sivu latautuu
+        Wait Until Page Contains Element    xpath://h1[contains(text(),'Tuotteen nimi')]    10s  # Muokkaa XPath oikeaksi
+
+        # Ota tarvittaessa kuvakaappaus
+        # Capture Page Screenshot    ${SCREENSHOT_PATH}
 
         Go Back
-
-        Sleep    1
-
-        Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[*]/a    10s
+        Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li/a    10s
     END
-
 
 *** Test Cases ***
 Search "ps5" in the search bar and take screenshot of 1st product¨
