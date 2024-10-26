@@ -9,3 +9,4 @@ WebDriver BiDi listening on ws://127.0.0.1:49633
 Read port: 49670
 1729841864114	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://127.0.0.1:49633/devtools/browser/7ec21cbb-e26a-4b7b-a194-5f1b127dac46
+console.error: (new Error("Polling for changes failed: NetworkError: Network request failed.", "resource://services-settings/remote-settings.sys.mjs", 324))

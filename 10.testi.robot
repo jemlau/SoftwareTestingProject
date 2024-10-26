@@ -13,6 +13,8 @@ ${autotheme}    xpath=/html/body/div[1]/div/div/ul/li[3]/button
 
 *** Test Cases ***
 Open browser
+    [Documentation]    Jemina
+
     Open Browser    ${URL}    Chrome
     Maximize Browser Window
 
@@ -31,5 +33,3 @@ Change theme back to light
     Take Screenshot    lighttheme.jpg
 
     Close Browser
-    
-    

@@ -12,15 +12,15 @@ ${cartbutton}    xpath=//*[@id="headercartcontainer"]/a
 ${plusbutton}    xpath=//*[@id="jim-main"]/div/div/div/div[1]/article/div/div[2]/div/div[3]/div[1]/div/i[2]
 ${totalprice}    9 998,00 €
 
-
 *** Test Cases ***
 Open browser and click on "Tietokoneet/Computers"
+    [Documentation]    Jemina
+
     Open Browser    ${URL}    Chrome
     Maximize Browser Window
 
     Execute JavaScript    window.location.href="/fi/Product/Tietokoneet"
 
-*** Test Cases ***
 Click on Apple, add first result to cart and open cart and take ss
     Click Element    ${apple}
 
@@ -35,7 +35,6 @@ Click on Apple, add first result to cart and open cart and take ss
 
     Capture Element Screenshot    xpath=//*[@id="jim-main"]/div/div    oldprice.jpg
 
-*** Test Cases ***
 Press the + button and check if price doubles
     Click Element    ${plusbutton}
     
@@ -45,7 +44,6 @@ Press the + button and check if price doubles
     ${price_element}=    Get Text    xpath=//*[@id="jim-main"]/div/div/div/div[2]/div/div[1]/ul/li[5]/span
     Should Be Equal    ${price_element}    ${totalprice}
 
-*** Test Cases ***
 Take screenshot of new price
     Capture Element Screenshot    xpath=//*[@id="jim-main"]/div/div    newprice.jpg
 
