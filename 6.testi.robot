@@ -15,11 +15,10 @@ ${linkedin_link}    xpath=//a[contains(@href, 'linkedin.com')]
 
 *** Test Cases ***
 Verify Social Media Links
-    [Documentation]    Verifies if social media links in the footer open successfully.
+    [Documentation]    Ella
     Open Browser    ${url}    Chrome
     Maximize Browser Window
 
-    # Check each social media link
     Click Element    ${facebook_link}
     Switch Window    NEW
     Location Should Contain    facebook.com
