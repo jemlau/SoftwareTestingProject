@@ -16,34 +16,42 @@ ${SCREENSHOT_PATH}    lisää_koriin_ikoni.png
 Open Browser and maximize Window
 
     Open Browser    ${url}    Chrome
+    ...    options=add_argument("disable-search-engine-choice-screen"); add_experimental_option("detach", True)
     Maximize Browser Window
 
+*** Test Cases ***
 *** Test Cases ***
 Testataan, onko kaikilla tuotteilla landing page
     [Documentation]    Hanna
     
-    Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a    5s
+    Open Browser    ${url}    Chrome
+    Maximize Browser Window
 
-    ${elements}=    Get WebElements    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li/a
+    # Odotetaan, että navigointivalikko tulee näkyviin
+    Wait Until Element Is Visible    xpath://jim-drilldown-mega-menu/nav/ul    5s
 
-    Remove From List    ${elements}    -1
+    ${elements}=    Get WebElements    xpath://jim-drilldown-mega-menu/nav/ul/li/a
 
     FOR    ${element}    IN    @{elements}
         ${link_text}=    Get Text    ${element}
-        Log    Clicking link: ${link_text}
+        Log    Klikkaus: ${link_text}
 
-        # Klikkaa elementtiä ja jatka, vaikka epäonnistuu
+        # Klikkaa elementtiä
         Run Keyword And Continue On Failure    Click Element    ${element}
         
-        # Odotetaan, että uusi sivu latautuu
-        Wait Until Page Contains Element    xpath://h1[contains(text(),'Tuotteen nimi')]    10s  # Muokkaa XPath oikeaksi
+        # Odotetaan että uusi sivu latautuu tarkistamalla, että <h1> tulee näkyviin
+        Wait Until Page Contains Element    xpath://h1    10s  
 
-        # Ota tarvittaessa kuvakaappaus
-        # Capture Page Screenshot    ${SCREENSHOT_PATH}
+        # Halutessasi, voit tarkistaa, ettei sivulla ole virhe-elementtejä
+        # Wait Until Page Does Not Contain    Virhe tai 404
 
         Go Back
-        Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li/a    10s
+
+        # Päivitetään valikkorakenne sivun takaisin siirtymisen jälkeen
+        Wait Until Element Is Visible    xpath://jim-drilldown-mega-menu/nav/ul    10s
+        ${elements}=    Get WebElements    xpath://jim-drilldown-mega-menu/nav/ul/li/a
     END
+
 
 *** Test Cases ***
 Search "ps5" in the search bar and take screenshot of 1st product¨
