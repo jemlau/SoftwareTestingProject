@@ -11,6 +11,8 @@ ${search_input}   id=searchinput
 ${firstproduct}    xpath=//*[@id="productsearchpage"]/div[2]/div[5]/div/div[1]/product-box
 ${ICON_XPATH}    //addto-cart-wrapper//a//span 
 ${SCREENSHOT_PATH}    lisää_koriin_ikoni.png
+${menu_base_xpath}    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul
+@{menu_items}    li[1]    li[2]    li[3]    li[4]    li[5]    li[6]    li[7]    li[8]    li[9]    li[10]    li[11]
 
 *** Test Cases ***
 Open Browser and maximize Window
@@ -20,39 +22,22 @@ Open Browser and maximize Window
     Maximize Browser Window
 
 *** Test Cases ***
-*** Test Cases ***
 Testataan, onko kaikilla tuotteilla landing page
     [Documentation]    Hanna
-    
-    Open Browser    ${url}    Chrome
-    Maximize Browser Window
 
-    # Odotetaan, että navigointivalikko tulee näkyviin
-    Wait Until Element Is Visible    xpath://jim-drilldown-mega-menu/nav/ul    5s
-
-    ${elements}=    Get WebElements    xpath://jim-drilldown-mega-menu/nav/ul/li/a
-
-    FOR    ${element}    IN    @{elements}
-        ${link_text}=    Get Text    ${element}
-        Log    Klikkaus: ${link_text}
-
-        # Klikkaa elementtiä
-        Run Keyword And Continue On Failure    Click Element    ${element}
-        
-        # Odotetaan että uusi sivu latautuu tarkistamalla, että <h1> tulee näkyviin
-        Wait Until Page Contains Element    xpath://h1    10s  
-
-        # Halutessasi, voit tarkistaa, ettei sivulla ole virhe-elementtejä
-        # Wait Until Page Does Not Contain    Virhe tai 404
-
-        Go Back
-
-        # Päivitetään valikkorakenne sivun takaisin siirtymisen jälkeen
-        Wait Until Element Is Visible    xpath://jim-drilldown-mega-menu/nav/ul    10s
-        ${elements}=    Get WebElements    xpath://jim-drilldown-mega-menu/nav/ul/li/a
+    FOR    ${item}    IN    @{menu_items}
+    ${xpath}    Set Variable    ${menu_base_xpath}/${item}
+    Run Keyword And Continue On Failure    Check If Element Exists    ${xpath}
     END
 
+*** Keywords ***
+Check If Element Exists
+    [Arguments]    ${xpath}
+    ${exists}    Run Keyword And Return Status    Element Should Be Visible    ${xpath}
+    Run Keyword If    ${exists}    Log    Element found for ${xpath}
+    Run Keyword Unless    ${exists}    Log    Element not found for ${xpath}
 
+    Sleep    2s
 *** Test Cases ***
 Search "ps5" in the search bar and take screenshot of 1st product¨
     [Documentation]    Jemina
