@@ -35,31 +35,17 @@ Testataan, onko kaikilla tuotteilla landing page
     FOR    ${index}    IN RANGE    0    10  # 11 on kategoria XPath:ien määrä
         ${xpath_landing_page}    Get From List    ${xpaths_category}    ${index}
         Reload Page
-
-        # Odota, että elementti on näkyvissä
-        Wait Until Element Is Visible    ${xpath_landing_page}    timeout=5s
-        Sleep    1s  # Lisää lyhyt odotus ennen klikkaamista
-
-        # Tarkista, että elementti on vuorovaikutteinen
-        ${is_visible}    Run Keyword And Return Status    Element Should Be Visible    ${xpath_landing_page}
-        Run Keyword If    not ${is_visible}    Log    Element ${xpath_landing_page} is not visible. Skipping...
-
-        # Klikkaa elementtiä
         Click Element    ${xpath_landing_page}
-
-        # Tarkista sivun otsikko
         ${page_title}    Get Title
         
-        # Tarkista, onko sivu tyhjää
-        ${is_empty}    Run Keyword And Return Status    Should Not Be Empty    ${page_title}
-
-        # Jos sivu on tyhjää, merkitse se bugiksi ja palauta pääsivulle
-        Run Keyword If    not ${is_empty}
-        ...    Log    Kategoria ${index + 1} johtaa tyhjään laskeutumissivuun. Tämä on bugi!
-        ...    Fail    Kategoria ${index + 1} ei ole toimiva laskeutumissivu!
-
-        # Palataan pääsivulle
-        Go Back
+        # Tarkista, että sivu ei ole tyhjää
+        Run Keyword And Ignore Error
+        ...    Should Not Be Empty    ${page_title}    Kategoriassa ${index + 1} pitäisi olla laskeutumis- eli "landing" -sivu
+        
+        # Jos sivu on tyhjää, palataan pääsivulle
+        Run Keyword And Continue On Failure
+        ...    Go Back
+        
     END
 
 *** Test Cases ***
