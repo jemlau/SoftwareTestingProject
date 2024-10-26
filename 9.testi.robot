@@ -1,3 +1,5 @@
+## Code made by Hanna Honkonen
+
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
@@ -9,6 +11,7 @@ ${url}    https://www.jimms.fi/
 
 *** Test Cases ***
 Testing account creation
+    [Documentation]    Hanna
     
     Open Browser    ${url}    Chrome
     ...    options=add_argument("disable-search-engine-choice-screen"); add_experimental_option("detach", True)
