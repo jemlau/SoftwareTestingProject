@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
@@ -58,4 +56,3 @@ Verify Social Media Links
     Close Window
 
     Close Browser
->>>>>>> 9b33e48ce337d4fb23e11fe8a29c3c323cfe2224
