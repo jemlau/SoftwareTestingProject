@@ -14,17 +14,17 @@ ${emptycartButton}    xpath=//*[@id="resetcartmodal"]/div/div/div[3]/form/input[
 
 *** Test Cases ***
 Open browser and go to product page
+    [Documentation]    Jemina
+
     Open Browser    ${URL}    Chrome
     Maximize Browser Window
 
     Go To    ${productpage}
 
-*** Test Cases ***
 Add product to cart and go to cart
     Click Element    ${addtocart}
     Click Element    ${cartbutton}
 
-*** Test Cases ***
 Empty shopping cart and check that it's empty
     Wait Until Element Is Visible    ${emptycart}    timeout=4s
     Click Element    ${emptycart}
