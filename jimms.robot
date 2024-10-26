@@ -7,37 +7,43 @@ Library    Collections
 
 *** Variables ***
 ${url}    https://www.jimms.fi/
+${menu_base_xpath}    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul
+@{menu_items}    li[1]    li[2]    li[3]    li[4]    li[5]    li[6]    li[7]    li[8]    li[9]    li[10]    li[11]
 ${search_input}   id=searchinput
 ${firstproduct}    xpath=//*[@id="productsearchpage"]/div[2]/div[5]/div/div[1]/product-box
 ${ICON_XPATH}    //addto-cart-wrapper//a//span 
 ${SCREENSHOT_PATH}    lisää_koriin_ikoni.png
-${menu_base_xpath}    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul
-@{menu_items}    li[1]    li[2]    li[3]    li[4]    li[5]    li[6]    li[7]    li[8]    li[9]    li[10]    li[11]
+${SCREENSHOT_TAKEN}    False
 
-*** Test Cases ***
-Open Browser and maximize Window
-
-    Open Browser    ${url}    Chrome
-    ...    options=add_argument("disable-search-engine-choice-screen"); add_experimental_option("detach", True)
-    Maximize Browser Window
 
 *** Test Cases ***
 Testataan, onko kaikilla tuotteilla landing page
     [Documentation]    Hanna
+    Open Browser    ${url}    Chrome
+    Maximize Browser Window
+    Sleep    2s
 
     FOR    ${item}    IN    @{menu_items}
-    ${xpath}    Set Variable    ${menu_base_xpath}/${item}
-    Run Keyword And Continue On Failure    Check If Element Exists    ${xpath}
+        ${xpath}    Set Variable    ${menu_base_xpath}/${item}
+        Run Keyword And Continue On Failure    Click And Verify Landing Page    ${xpath}
     END
-
+    
 *** Keywords ***
-Check If Element Exists
+Click And Verify Landing Page
     [Arguments]    ${xpath}
+    # Tarkista, onko elementti näkyvissä
     ${exists}    Run Keyword And Return Status    Element Should Be Visible    ${xpath}
-    Run Keyword If    ${exists}    Log    Element found for ${xpath}
+    
+    Run Keyword If    ${exists}    Click Element    ${xpath}
     Run Keyword Unless    ${exists}    Log    Element not found for ${xpath}
-
+    
+    # Anna sivun latautua
     Sleep    2s
+    
+    # Tarkista, että landing page on avautunut
+    ${page_loaded}    Run Keyword And Return Status    Element Should Be Visible    ${xpath}
+    Run Keyword If    ${page_loaded}    Log    Landing page loaded for ${xpath}
+    Run Keyword Unless    ${page_loaded}    Log    Landing page not loaded for ${xpath}
 *** Test Cases ***
 Search "ps5" in the search bar and take screenshot of 1st product¨
     [Documentation]    Jemina
