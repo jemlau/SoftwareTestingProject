@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 *** Settings ***
 Library    SeleniumLibrary
 Library    OperatingSystem
@@ -34,8 +32,3 @@ Go to the product page and check that it contains "Sony PS5 DualSense Midnight B
     Click Element    xpath=//*[@id="productsearchpage"]/div[2]/div[5]/div/div[1]/product-box/div[2]/div[1]/a/div/img
 
     Page Should Contain    Sony PS5 DualSense Midnight Black, langaton peliohjain
-
-
-
-
->>>>>>> 9b33e48ce337d4fb23e11fe8a29c3c323cfe2224
