@@ -18,7 +18,8 @@ Open Browser and maximize Window
     Maximize Browser Window
 
 *** Test Cases ***
-Search "ps5" in the search bar and take screenshot of 1st product
+Search "ps5" in the search bar and take screenshot of 1st product¨
+    [Documentation]    Jemina
 
     Click Element    ${search_input}
     Input Text    ${search_input}    ps5
@@ -36,6 +37,7 @@ Go to the product page and check that it contains "Sony PS5 DualSense Midnight B
 
 *** Test Cases ***
 Test if the "Lisää koriin" link and icon is visible
+    [Documentation]    Ella
     Element Should Be Visible    css=a[title="Lisää koriin"]
 
     Wait Until Element Is Visible    ${ICON_XPATH}    timeout=10
