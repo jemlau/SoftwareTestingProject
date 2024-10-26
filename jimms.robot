@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 Library    OperatingSystem
 Library    String
 Library    Screenshot
+Library    Collections
 
 *** Variables ***
 ${url}    https://www.jimms.fi/
@@ -16,6 +17,27 @@ Open Browser and maximize Window
 
     Open Browser    ${url}    Chrome
     Maximize Browser Window
+
+*** Test Cases ***
+Testataan, onko kaikilla tuotteilla landing page
+    Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a    5s
+
+    ${elements}=    Get WebElements    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[]/a
+
+    Remove From List    ${elements}    -1
+
+    FOR    ${element}    IN    @{elements}
+        ${link_text}=    Get Text    ${element}
+        Log    Clicking link: ${link_text}
+        Run Keyword And Ignore Error    Click Element    ${element}
+
+        Go Back
+
+        Sleep    1
+
+        Wait Until Element Is Visible    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[*]/a    10s
+    END
+
 
 *** Test Cases ***
 Search "ps5" in the search bar and take screenshot of 1st product¨
@@ -48,4 +70,8 @@ Take screenshot of the icon
     File Should Exist    ${SCREENSHOT_PATH}
 
 *** Test Cases ***
+Testaa lisätä tuote ostoskoriin
+    
+    Click Element    xpath://a[@title='Lisää koriin']
+
 
