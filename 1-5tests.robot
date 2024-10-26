@@ -26,13 +26,8 @@ Search "ps5" in the search bar and take screenshot of 1st product
     Wait Until Element Is Visible    ${firstproduct}    timeout=10s
     Capture Element Screenshot    ${firstproduct}    first_product.png
 
-*** Test Cases ***
 Go to the product page and check that it contains "Sony PS5 DualSense Midnight Black, langaton peliohjain"
 
     Click Element    xpath=//*[@id="productsearchpage"]/div[2]/div[5]/div/div[1]/product-box/div[2]/div[1]/a/div/img
 
     Page Should Contain    Sony PS5 DualSense Midnight Black, langaton peliohjain
-
-
-
-
