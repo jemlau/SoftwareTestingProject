@@ -38,11 +38,9 @@ Testataan, onko kaikilla tuotteilla landing page
         Click Element    ${xpath_landing_page}
         ${page_title}    Get Title
         
-        # Tarkista, että sivu ei ole tyhjää
         Run Keyword And Ignore Error
         ...    Should Not Be Empty    ${page_title}    Kategoriassa ${index + 1} pitäisi olla laskeutumis- eli "landing" -sivu
         
-        # Jos sivu on tyhjää, palataan pääsivulle
         Run Keyword And Continue On Failure
         ...    Go Back
         
