@@ -70,5 +70,6 @@ Testing account creation
     Click Element    name:GDPR
 
     Take Screenshot    filledAccountInformation.png
+    Sleep    2s
     
     Close Browser
