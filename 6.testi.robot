@@ -23,36 +23,43 @@ Verify Social Media Links
     Click Element               ${facebook_link}
     Switch Window               NEW
     Location Should Contain      facebook.com
+    Sleep    2s
     Close Window
 
     Switch Window    MAIN
     Click Element    ${instagram_link}
     Switch Window    NEW
     Location Should Contain    instagram.com
+    Sleep    2s
     Close Window
 
     Switch Window    MAIN
     Click Element    ${twitter_link}
     Switch Window    NEW
     Location Should Contain    x.com
+    Sleep    2s
     Close Window
-
+    
     Switch Window    MAIN
     Click Element    ${youtube_link}
     Switch Window    NEW
     Location Should Contain    youtube.com
+    Sleep    2s
     Close Window
+    
 
     Switch Window    MAIN
     Click Element    ${tiktok_link}
     Switch Window    NEW
     Location Should Contain    tiktok.com
+    Sleep    2s
     Close Window
 
     Switch Window    MAIN
     Click Element    ${linkedin_link}
     Switch Window    NEW
     Location Should Contain    linkedin.com
+    Sleep    2s
     Close Window
 
     Close Browser

@@ -23,7 +23,9 @@ Open browser and go to product page
 
 Add product to cart and go to cart
     Click Element    ${addtocart}
+    Sleep    1s
     Click Element    ${cartbutton}
+    Sleep    2s
 
 Empty shopping cart and check that it's empty
     Wait Until Element Is Visible    ${emptycart}    timeout=4s
