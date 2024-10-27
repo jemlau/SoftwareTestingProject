@@ -1,5 +1,3 @@
-## Code made by Hanna Honkonen
-
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
