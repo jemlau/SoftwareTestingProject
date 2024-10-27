@@ -1,5 +1,6 @@
 # Software Testing Project
 School project for our course "Software Testing"
+
 Testing the functionalities of https://www.jimms.fi/
 
 Collaborators:
