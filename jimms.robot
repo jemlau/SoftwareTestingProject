@@ -37,6 +37,7 @@ Testataan, onko kaikilla tuotteilla landing page
         Reload Page
         Click Element    ${xpath_landing_page}
         ${page_title}    Get Title
+        Sleep    1s
         
         Run Keyword And Ignore Error
         ...    Should Not Be Empty    ${page_title}    Kategoriassa ${index + 1} pitäisi olla laskeutumis- eli "landing" -sivu
@@ -51,9 +52,13 @@ Search "ps5" in the search bar and take screenshot of 1st product¨
     [Documentation]    Jemina
 
     Click Element    ${search_input}
+    Sleep    2s
+
     Input Text    ${search_input}    ps5
+    Sleep    2s
 
     Press Keys    ${search_input}    ENTER
+    Sleep    2s
 
     Wait Until Element Is Visible    ${firstproduct}    timeout=10s
     Capture Element Screenshot    ${firstproduct}    first_product.png
@@ -61,8 +66,10 @@ Search "ps5" in the search bar and take screenshot of 1st product¨
 Go to the product page and check that it contains "Sony PS5 DualSense Midnight Black, langaton peliohjain"
 
     Click Element    xpath=//*[@id="productsearchpage"]/div[2]/div[5]/div/div[1]/product-box/div[2]/div[1]/a/div/img
+    Sleep    2s
 
     Page Should Contain    Sony PS5 DualSense Midnight Black, langaton peliohjain
+    Sleep    2s
 
 *** Test Cases ***
 Test if the "Lisää koriin" link and icon is visible
@@ -72,16 +79,21 @@ Test if the "Lisää koriin" link and icon is visible
 
     Wait Until Element Is Visible    ${ICON_XPATH}    timeout=10
     Element Should Be Visible    ${ICON_XPATH}
+    Sleep    2s
 
 Take screenshot of the icon
     Capture Element Screenshot    ${ICON_XPATH}    ${SCREENSHOT_PATH}
     File Should Exist    ${SCREENSHOT_PATH}
+    Sleep    2s
 
 *** Test Cases ***
 Test to add product to shopping cart
     [Documentation]    Hanna
     
     Click Element    xpath://a[@title='Lisää koriin']
+    Sleep    2s
+
+    Click Element    xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div
     Sleep    2s
     
     Close Browser

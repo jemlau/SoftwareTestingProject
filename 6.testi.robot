@@ -19,9 +19,10 @@ Verify Social Media Links
     Open Browser    ${url}    Chrome
     Maximize Browser Window
 
-    Click Element    ${facebook_link}
-    Switch Window    NEW
-    Location Should Contain    facebook.com
+    Scroll Element Into View    ${facebook_link}
+    Click Element               ${facebook_link}
+    Switch Window               NEW
+    Location Should Contain      facebook.com
     Close Window
 
     Switch Window    MAIN
