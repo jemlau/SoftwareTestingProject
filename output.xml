@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.0 on win32)" generated="2024-10-27T15:24:20.433260" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.0 on win32)" generated="2024-10-27T16:42:29.730803" rpa="false" schemaversion="5">
 <suite id="s1" name="10.testi darktheme and lightTheme" source="c:\SoftwareTestingProject\10.testi_darktheme_and_lightTheme.robot">
 <test id="s1-t1" name="Open browser" line="15">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-27T15:24:21.349055" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<msg time="2024-10-27T16:42:30.927490" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-27T15:24:21.346151" elapsed="2.407899"/>
+<status status="PASS" start="2024-10-27T16:42:30.923485" elapsed="2.758995"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-27T15:24:23.756052" elapsed="0.204428"/>
+<status status="PASS" start="2024-10-27T16:42:33.686695" elapsed="0.174417"/>
 </kw>
 <doc>Jemina</doc>
-<status status="PASS" start="2024-10-27T15:24:21.341058" elapsed="2.620437"/>
+<status status="PASS" start="2024-10-27T16:42:30.915485" elapsed="2.947625"/>
 </test>
 <test id="s1-t2" name="Change theme to dark" line="21">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-27T15:24:23.969504" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/span'.</msg>
+<msg time="2024-10-27T16:42:33.870126" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/span'.</msg>
 <arg>${dropdown}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-27T15:24:23.967503" elapsed="0.278923"/>
+<status status="PASS" start="2024-10-27T16:42:33.869125" elapsed="0.147960"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-27T15:24:24.249418" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/ul/li[2]/button'.</msg>
+<msg time="2024-10-27T16:42:34.021016" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/ul/li[2]/button'.</msg>
 <arg>${darktheme}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-27T15:24:24.248419" elapsed="0.084357"/>
+<status status="PASS" start="2024-10-27T16:42:34.019016" elapsed="0.079828"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-27T15:24:27.336287" level="INFO">Slept 3 seconds.</msg>
+<msg time="2024-10-27T16:42:37.102021" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-27T15:24:24.334679" elapsed="3.002620"/>
+<status status="PASS" start="2024-10-27T16:42:34.099844" elapsed="3.003299"/>
 </kw>
 <kw name="Take Screenshot" owner="Screenshot">
-<msg time="2024-10-27T15:24:27.418144" level="INFO" html="true">&lt;a href="darktheme.jpg"&gt;&lt;img src="darktheme.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-27T16:42:37.194915" level="INFO" html="true">&lt;a href="darktheme.jpg"&gt;&lt;img src="darktheme.jpg" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>darktheme.jpg</arg>
 <doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<status status="PASS" start="2024-10-27T15:24:27.339296" elapsed="0.079839"/>
+<status status="PASS" start="2024-10-27T16:42:37.107036" elapsed="0.087879"/>
 </kw>
-<status status="PASS" start="2024-10-27T15:24:23.965498" elapsed="3.455560"/>
+<status status="PASS" start="2024-10-27T16:42:33.866113" elapsed="3.329961"/>
 </test>
 <test id="s1-t3" name="Change theme back to light" line="28">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-27T15:24:27.427145" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/span'.</msg>
+<msg time="2024-10-27T16:42:37.202163" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/span'.</msg>
 <arg>${dropdown}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-27T15:24:27.426042" elapsed="0.066905"/>
+<status status="PASS" start="2024-10-27T16:42:37.201144" elapsed="0.063451"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-27T15:24:27.494949" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/ul/li[1]/button'.</msg>
+<msg time="2024-10-27T16:42:37.267700" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/ul/li[1]/button'.</msg>
 <arg>${lighttheme}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-27T15:24:27.493945" elapsed="0.100796"/>
+<status status="PASS" start="2024-10-27T16:42:37.266636" elapsed="0.099583"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-27T15:24:30.598428" level="INFO">Slept 3 seconds.</msg>
+<msg time="2024-10-27T16:42:40.369758" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-27T15:24:27.596742" elapsed="3.002700"/>
+<status status="PASS" start="2024-10-27T16:42:37.367215" elapsed="3.003569"/>
 </kw>
 <kw name="Take Screenshot" owner="Screenshot">
-<msg time="2024-10-27T15:24:30.656382" level="INFO" html="true">&lt;a href="lighttheme.jpg"&gt;&lt;img src="lighttheme.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-27T16:42:40.422245" level="INFO" html="true">&lt;a href="lighttheme.jpg"&gt;&lt;img src="lighttheme.jpg" width="800px"&gt;&lt;/a&gt;</msg>
 <arg>lighttheme.jpg</arg>
 <doc>Takes a screenshot in JPEG format and embeds it into the log file.</doc>
-<status status="PASS" start="2024-10-27T15:24:30.602440" elapsed="0.053942"/>
+<status status="PASS" start="2024-10-27T16:42:40.373777" elapsed="0.049562"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-10-27T15:24:30.657472" elapsed="2.262153"/>
+<status status="PASS" start="2024-10-27T16:42:40.424229" elapsed="2.195007"/>
 </kw>
-<status status="PASS" start="2024-10-27T15:24:27.424044" elapsed="5.498691"/>
+<status status="PASS" start="2024-10-27T16:42:37.199102" elapsed="5.422027"/>
 </test>
-<status status="PASS" start="2024-10-27T15:24:20.451162" elapsed="12.476665"/>
+<status status="PASS" start="2024-10-27T16:42:29.753982" elapsed="12.871896"/>
 </suite>
 <statistics>
 <total>
